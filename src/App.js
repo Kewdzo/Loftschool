@@ -1,4 +1,3 @@
-// import './App.css';
 // import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 // import LoginPage from './login.js';
 // import MapPage from './map.js';
@@ -38,10 +37,15 @@ import RegisterPage from './registration.js';
 import ProfilePage from './profile.js';
 
 class App extends React.Component {
-  state = {page: 'login'};
+  state = { page: 'login',email: "",password: ""};
+
 
   setPage = (name) => {
     this.setState({ page: name });
+  }
+  
+  handleChange = (event) => {
+    this.setState({ [event.target.name]: event.target.value });
   }
 
   render() {
@@ -55,7 +59,7 @@ class App extends React.Component {
         <hr />
         <div>{
           {
-            login: <LoginPage parentFunc={this.setPage} />,
+            login: <LoginPage parentFunc={this.setPage} formFunc={this.handleChange} state={this.state}/>,
             map: <MapPage parentFunc={this.setPage} />,
             register: <RegisterPage parentFunc={this.setPage} />,
             profile: <ProfilePage parentFunc={this.setPage} />

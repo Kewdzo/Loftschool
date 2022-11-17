@@ -1,0 +1,116 @@
+.LoginPageForm .LogIn {
+    position: absolute;
+    width: 353px;
+    height: 61px;
+    left: 785px;
+    top: 612px;
+    background: #FDBF5A;
+    border-radius: 70px;    
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 29px;
+}
+
+.LoginPageForm .Email {
+    position: absolute;
+    width: 40px;
+    height: 19px;
+    left: 784px;
+    top: 387px;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    /* identical to box height */
+
+
+    color: #000000;
+}
+
+.LoginPageForm .Password {
+    /* Пароль */
+    position: absolute;
+    width: 56px;
+    height: 19px;
+    left: 784px;
+    top: 473px;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    /* identical to box height */
+
+
+    color: #000000;
+}
+
+.LoginPageForm .Password .Lost{
+    /* Забыли пароль? */
+    position: absolute;
+    width: 124px;
+    height: 19px;
+    left: 1015px;
+    top: 547px;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    /* identical to box height */
+
+
+    /* Gray 3 */
+
+    color: #828282;
+}
+
+
+.LoginCaption {
+    position: absolute;
+    width: 221px;
+    height: 35px;
+    left: 851px;
+    top: 295px;
+    
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 35px;
+    text-align: center;
+    
+    color: #000000;
+}
+
+.LoginPageForm .Registration{
+   /* Новый пользователь? Регистрация */
+    position: absolute;
+    width: 268px;
+    height: 19px;
+    left: 827px;
+    top: 706px;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    /* identical to box height */
+
+    text-align: center;
+
+    /* Gray 3 */
+
+    color: #828282;
+}
+
+
+
+
