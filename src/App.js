@@ -37,7 +37,7 @@ import RegisterPage from './registration.js';
 import ProfilePage from './profile.js';
 
 class App extends React.Component {
-  state = { page: 'login',email: "",password: ""};
+  state = { page: 'login',email: "",password: "", name:""};
 
 
   setPage = (name) => {
@@ -61,7 +61,7 @@ class App extends React.Component {
           {
             login: <LoginPage parentFunc={this.setPage} formFunc={this.handleChange} state={this.state}/>,
             map: <MapPage parentFunc={this.setPage} />,
-            register: <RegisterPage parentFunc={this.setPage} />,
+            register: <RegisterPage parentFunc={this.setPage} formFunc={this.handleChange} state={this.state}/>,
             profile: <ProfilePage parentFunc={this.setPage} />
           }[this.state.page]
         }</div>

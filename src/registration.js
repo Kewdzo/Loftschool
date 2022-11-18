@@ -6,11 +6,24 @@ const RegisterPage = (props) => {
         <div className="RegisterPage">
         <header className="RegisterPage-header">
         <div className="RegisterPageForm">
-            <p>RegisterPage</p>
-            <button onClick={() => props.parentFunc('login')}>Login</button>
-              <button onClick={() => props.parentFunc('map')}>Map</button>
-              <button onClick={() => props.parentFunc('register')}>Register</button>
-              <button onClick={() => props.parentFunc('profile')}>Profile</button>
+            <p className="RegistrationCaption">Регистрация</p>  
+            <form onSubmit={() => props.parentFunc('map')}>
+              <div className='Email'>
+                <label htmlFor="Email" className="EmailLable">Email*</label>
+                <input id="Email" name="email" type="Email" className="EmailInput" value={props.state.email} onChange={(e) => props.formFunc(e)}/>
+              </div>
+              <div className='Name'>
+                <label htmlFor="Name" className="NameLable">Как вас зовут?*</label>
+                <input id="Name" name="name" type="Name" className="NameInput" value={props.state.name} onChange={(e) => props.formFunc(e)}/>
+              </div>
+              <div className='Password'>
+                <label htmlFor="Password" className="PasswordLable">Придумайте пароль*</label>
+                <input id="Password" name="password" type="Password" className="PasswordInput" value={props.state.password} onChange={(e) => props.formFunc(e)}/>
+              </div>
+              <p className="Lost">Забыли пароль?</p>
+              <input type="submit" value="Зарегистрироваться" className="LogIn"/>
+              <p className="Registration">Уже зарегистрированы? Войти</p>
+            </form> 
         </div>
         </header>
     </div> 

@@ -52,7 +52,7 @@
 
 .LoginPageForm .Password .Lost{
     /* Забыли пароль? */
-    position: absolute;
+    /*position: absolute;*/
     width: 124px;
     height: 19px;
     left: 1015px;
