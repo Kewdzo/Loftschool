@@ -2,7 +2,8 @@
 import './login.css'
 
 const LoginPage = (props) => { 
-    //Необходимо будет перейти от вложенности инпутов к взаимосвязям с lable-input через Id
+    //TODO: Необходимо будет перейти от вложенности инпутов к взаимосвязям с lable-input через Id
+    //TODO: Пересмотреть реализацию с сохранением логина/пароля как в Registration
     return ( 
         <div className="LoginPage">
         <header className="LoginPage-header">
@@ -31,7 +32,7 @@ const LoginPage = (props) => {
                 <p className="Lost">Забыли пароль?</p>
               </div>              
               <input type="submit" value="Войти" className="LogIn"/>
-              <p className="Registration">Новый пользователь? Регистрация</p>
+              <p className="Registration">Новый пользователь? <a href="#Foo" onClick={() => props.parentFunc('register')}>Регистрация</a></p>              
             </form>      
         </div>
         </header>

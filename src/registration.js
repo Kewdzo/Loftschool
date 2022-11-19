@@ -1,6 +1,10 @@
 //import { useHistory } from 'react-router-dom';
+import React, { useState } from "react";
 
 const RegisterPage = (props) => {
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [password, setPassword] = useState("");
    
     return ( 
         <div className="RegisterPage">
@@ -10,19 +14,19 @@ const RegisterPage = (props) => {
             <form onSubmit={() => props.parentFunc('map')}>
               <div className='Email'>
                 <label htmlFor="Email" className="EmailLable">Email*</label>
-                <input id="Email" name="email" type="Email" className="EmailInput" value={props.state.email} onChange={(e) => props.formFunc(e)}/>
+                <input id="Email" name="email" type="Email" className="EmailInput" value={email} onChange={(e) => setEmail(e.target.value)}/>
               </div>
               <div className='Name'>
                 <label htmlFor="Name" className="NameLable">Как вас зовут?*</label>
-                <input id="Name" name="name" type="Name" className="NameInput" value={props.state.name} onChange={(e) => props.formFunc(e)}/>
+                <input id="Name" name="name" type="Name" className="NameInput" value={name} onChange={(e) => setName(e.target.value)}/>
               </div>
               <div className='Password'>
                 <label htmlFor="Password" className="PasswordLable">Придумайте пароль*</label>
-                <input id="Password" name="password" type="Password" className="PasswordInput" value={props.state.password} onChange={(e) => props.formFunc(e)}/>
+                <input id="Password" name="password" type="Password" className="PasswordInput" value={password} onChange={(e) => setPassword(e.target.value)}/>
               </div>
               <p className="Lost">Забыли пароль?</p>
               <input type="submit" value="Зарегистрироваться" className="LogIn"/>
-              <p className="Registration">Уже зарегистрированы? Войти</p>
+              <p className="Registration">Уже зарегистрированы? <a href="#Foo" onClick={() => props.parentFunc('login')}>Войти</a></p>
             </form> 
         </div>
         </header>
