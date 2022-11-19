@@ -31,10 +31,10 @@
 // export default App;
 
 import React from 'react';
-import LoginPage from './login.js';
-import MapPage from './map.js';
-import RegisterPage from './registration.js';
-import ProfilePage from './profile.js';
+import LoginPage from './components/Login';
+import MapPage from './components/Map';
+import RegisterPage from './components/Registation';
+import ProfilePage from './components/Profile';
 
 class App extends React.Component {
   state = { page: 'login',email: "",password: "", name:""};

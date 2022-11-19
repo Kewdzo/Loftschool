@@ -1,5 +1,5 @@
 //import { useHistory } from 'react-router-dom';
-import './login.css'
+import './style.css'
 
 const LoginPage = (props) => { 
     //TODO: Необходимо будет перейти от вложенности инпутов к взаимосвязям с lable-input через Id
