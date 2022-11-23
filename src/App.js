@@ -35,42 +35,50 @@ import LoginPage from './components/Login';
 import MapPage from './components/Map';
 import RegisterPage from './components/Registation';
 import ProfilePage from './components/Profile';
+import { useState } from 'react';
+import { MainContext } from './context/main-context';
 
-class App extends React.Component {
-  state = { page: 'login',email: "",password: "", name:""};
+const App = () => { 
+  const [page, setPage] = useState('login');
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  MainContext.login = (email, password) =>{       
+    setPage('map');
+    setIsLoggedIn(true);
+    window.console.log('Пользователь залогинился');
+    window.console.log('Логин: '+email);
+    window.console.log('Пароль: '+password);
+  };
+  MainContext.logout = () => {
+    setIsLoggedIn(false);
+    setPage('login');
+  };
+  MainContext.isLoggedIn = isLoggedIn;
 
-
-  setPage = (name) => {
-    this.setState({ page: name });
-  }
-  
-  handleChange = (event) => {
-    this.setState({ [event.target.name]: event.target.value });
-  }
-
-  render() {
-    return (
-      <div className='App'>
-        <h1>Показывается страница {this.state.page}.js</h1>
-        <button onClick={() => this.setPage('login')}>Перейти на Login</button>
-        <button onClick={() => this.setPage('map')}>Перейти на Map</button>
-        <button onClick={() => this.setPage('register')}>Перейти на Register</button>
-        <button onClick={() => this.setPage('profile')}>Перейти на Profile</button>
-        <hr />
+  return ( 
+    <div className='App'>
+      <h1>Показывается страница {page}.js</h1>
+      <button onClick={() => setPage('login')}>Перейти на Login</button>
+      <button onClick={() => setPage('map')}>Перейти на Map</button>
+      <button onClick={() => setPage('register')}>Перейти на Register</button>
+      <button onClick={() => setPage('profile')}>Перейти на Profile</button>
+      <MainContext.Provider value={{login: MainContext.login, logout: MainContext.logout, isLoggedIn: MainContext.isLoggedIn }}>
+      <hr />
         <div>{
           {
-            login: <LoginPage parentFunc={this.setPage} formFunc={this.handleChange} state={this.state}/>,
-            map: <MapPage parentFunc={this.setPage} />,
-            register: <RegisterPage parentFunc={this.setPage} formFunc={this.handleChange} state={this.state}/>,
-            profile: <ProfilePage parentFunc={this.setPage} />
-          }[this.state.page]
+            login: <LoginPage parentFunc={setPage} />,
+            map: <MapPage parentFunc={setPage} />,
+            register: <RegisterPage parentFunc={setPage} />,
+            profile: <ProfilePage parentFunc={setPage} />
+          }[page]
         }</div>
-      </div>
-    );
-  };
+        </MainContext.Provider>
+  </div>
+);
 }
 
 export default App;
+
+
 
 
 
