@@ -1,5 +1,6 @@
 //import { useHistory } from 'react-router-dom';
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 
 const RegisterPage = (props) => {
   const [email, setEmail] = useState("");
@@ -32,6 +33,9 @@ const RegisterPage = (props) => {
         </header>
     </div> 
   );
+}
+RegisterPage.propTypes = {
+  parentFunc: PropTypes.func
 }
  
 export default RegisterPage;

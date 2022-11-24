@@ -2,6 +2,8 @@
 import './style.css'
 import React, { useState, useContext } from "react";
 import { MainContext } from '../../context/main-context';
+import PropTypes from "prop-types";
+
 
 const LoginPage = (props) => { 
   const [email, setEmail] = useState("");
@@ -29,6 +31,10 @@ const LoginPage = (props) => {
         </header>
     </div> 
   );
+}
+
+LoginPage.propTypes = {
+  parentFunc: PropTypes.func
 }
  
 export default LoginPage;

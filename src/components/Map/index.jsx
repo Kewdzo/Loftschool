@@ -1,4 +1,5 @@
 //import { useHistory } from 'react-router-dom';
+import PropTypes from "prop-types";
 
 const MapPage = (props) => {   
     return ( 
@@ -14,6 +15,9 @@ const MapPage = (props) => {
         </header>
     </div> 
   );
+}
+MapPage.propTypes = {
+  parentFunc: PropTypes.func
 }
 
 export default MapPage;

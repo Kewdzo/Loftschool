@@ -1,4 +1,5 @@
 //import { useHistory } from 'react-router-dom';
+import PropTypes from "prop-types";
 
 const ProfilePage = (props) => {
     
@@ -15,6 +16,9 @@ const ProfilePage = (props) => {
         </header>
     </div> 
   );
+}
+ProfilePage.propTypes = {
+  parentFunc: PropTypes.func
 }
  
 export default ProfilePage;
