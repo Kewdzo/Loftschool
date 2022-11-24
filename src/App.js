@@ -56,13 +56,12 @@ const App = () => {
 
   return ( 
     <div className='App'>
-      <h1>Показывается страница {page}.js</h1>
+      {/*<h1>Показывается страница {page}.js</h1>
       <button onClick={() => setPage('login')}>Перейти на Login</button>
       <button onClick={() => setPage('map')}>Перейти на Map</button>
       <button onClick={() => setPage('register')}>Перейти на Register</button>
-      <button onClick={() => setPage('profile')}>Перейти на Profile</button>
+      <button onClick={() => setPage('profile')}>Перейти на Profile</button>*/}
       <MainContext.Provider value={{login: MainContext.login, logout: MainContext.logout, isLoggedIn: MainContext.isLoggedIn }}>
-      <hr />
         <div>{
           {
             login: <LoginPage parentFunc={setPage} />,

@@ -1,6 +1,9 @@
 //import { useHistory } from 'react-router-dom';
 import React, { useState } from "react";
 import PropTypes from "prop-types";
+import Input from '@mui/material/Input';
+
+
 
 const RegisterPage = (props) => {
   const [email, setEmail] = useState("");
@@ -16,6 +19,7 @@ const RegisterPage = (props) => {
               <div className='Email'>
                 <label htmlFor="Email" className="EmailLable">Email*</label>
                 <input id="Email" name="email" type="Email" className="EmailInput" value={email} onChange={(e) => setEmail(e.target.value)}/>
+                <Input id="Email" name="email" type="Email" className="EmailInput" value={email} onChange={(e) => setEmail(e.target.value)}></Input>
               </div>
               <div className='Name'>
                 <label htmlFor="Name" className="NameLable">Как вас зовут?*</label>
