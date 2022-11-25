@@ -14,10 +14,10 @@ const LoginPage = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const myContext = useContext(MainContext);
-  
+
   const logIn = (email, password, props) => {
     if (email && password) {
-      myContext.login(email, password);
+      myContext.logIn(email, password);
       props.parentFunc('map');
     }
     else {

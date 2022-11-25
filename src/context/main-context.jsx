@@ -4,17 +4,17 @@ export const MainContext = React.createContext();
 
 export const MainContextProvider = ({children}) => {
     const [isLoggedIn, setIsLoggedIn] = React.useState(false);
-    const login = (email, password) => {
+    const logIn = (email, password) => {
         setIsLoggedIn(true);
         console.log('Пользователь залогинился');
         console.log('Логин: ' + email);
         console.log('Пароль: ' + password);
     };
-    const logout = () => {
+    const logOut = () => {
         setIsLoggedIn(false);
     };
     return (
-        <MainContext.Provider value={{ login, logout, isLoggedIn }}>
+        <MainContext.Provider value={{ logIn, logOut, isLoggedIn }}>
             {children}
         </MainContext.Provider>
     );
