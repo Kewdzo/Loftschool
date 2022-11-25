@@ -1,7 +1,7 @@
 //import { useHistory } from 'react-router-dom';
 import PropTypes from "prop-types";
 import mapboxgl from "mapbox-gl"
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect } from 'react';
 import './style.css';
 import logo from '../../assets/icons/HeaderLogo.png';
 
