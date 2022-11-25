@@ -38,15 +38,15 @@ import ProfilePage from './components/Profile';
 import { useState } from 'react';
 import { MainContext } from './context/main-context';
 
-const App = () => { 
+const App = () => {
   const [page, setPage] = useState('login');
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  MainContext.login = (email, password) =>{       
+  MainContext.login = (email, password) => {
     setPage('map');
     setIsLoggedIn(true);
     window.console.log('Пользователь залогинился');
-    window.console.log('Логин: '+email);
-    window.console.log('Пароль: '+password);
+    window.console.log('Логин: ' + email);
+    window.console.log('Пароль: ' + password);
   };
   MainContext.logout = () => {
     setIsLoggedIn(false);
@@ -54,14 +54,14 @@ const App = () => {
   };
   MainContext.isLoggedIn = isLoggedIn;
 
-  return ( 
+  return (
     <div className='App'>
       {/*<h1>Показывается страница {page}.js</h1>
       <button onClick={() => setPage('login')}>Перейти на Login</button>
       <button onClick={() => setPage('map')}>Перейти на Map</button>
       <button onClick={() => setPage('register')}>Перейти на Register</button>
       <button onClick={() => setPage('profile')}>Перейти на Profile</button>*/}
-      <MainContext.Provider value={{login: MainContext.login, logout: MainContext.logout, isLoggedIn: MainContext.isLoggedIn }}>
+      <MainContext.Provider value={{ MainContext }}>
         <div>{
           {
             login: <LoginPage parentFunc={setPage} />,
@@ -70,9 +70,9 @@ const App = () => {
             profile: <ProfilePage parentFunc={setPage} />
           }[page]
         }</div>
-        </MainContext.Provider>
-  </div>
-);
+      </MainContext.Provider>
+    </div>
+  );
 }
 
 export default App;
