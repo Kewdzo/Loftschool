@@ -8,8 +8,6 @@ import map from '../../assets/images/Map.jpg';
 //import { Logo,MCIcon } from "loft-taxi-mui-theme";
 import Input from '@mui/material/Input';
 
-
-
 const LoginPage = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

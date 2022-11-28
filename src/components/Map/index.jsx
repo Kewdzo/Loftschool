@@ -1,52 +1,34 @@
 //import { useHistory } from 'react-router-dom';
-import PropTypes from "prop-types";
 import mapboxgl from "mapbox-gl"
 import React, { useRef, useEffect } from 'react';
 import './style.css';
-import logo from '../../assets/icons/HeaderLogo.png';
 
 /*Функциональный компонент*/
-const MapPage = (props) => {
+function Map(events) {
   const mapContainer = useRef(null);
   const map = useRef(null);
 
   useEffect(() => {
     if (map.current) return; // initialize map only once
+    mapboxgl.accessToken =
+      "pk.eyJ1Ijoia2V3ZHpvIiwiYSI6ImNsYXdhbW1oMDBhd3EzcHFtNWttcXZnOWMifQ.MBcONxQZFcpmXIEYZBZDhg";
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
       style: 'mapbox://styles/mapbox/streets-v12',
-      center: [60.6122, 56.8518],  
+      center: [60.6122, 56.8518],
       zoom: 12
     });
-  });
+  })
 
-  mapboxgl.accessToken =
-    "pk.eyJ1Ijoia2V3ZHpvIiwiYSI6ImNsYXdhbW1oMDBhd3EzcHFtNWttcXZnOWMifQ.MBcONxQZFcpmXIEYZBZDhg";
 
-  return (
-    <div className="MapPage">
-      <header className="MapPage-header">
-        <div className="ImageHeader">
-          <img src={logo} alt="Logo" style={{ alignSelf: 'center', width: '25%', }} />
-        </div>
-        <div className="ButtonHeaderGroup" style={{ display: 'flex', justifyContent: 'flex-end', flexBasis: '60%' }}>
-          <button className="ButtonHeader" onClick={() => props.parentFunc('map')}>Карта</button>
-          <button className="ButtonHeader" onClick={() => props.parentFunc('profile')}>Профиль</button>
-          <button className="ButtonHeader" onClick={() => props.parentFunc('login')}>Выйти</button>
-        </div>
-      </header>
-      <div>
-        <div className="map-container" ref={mapContainer} />
-      </div>
-
+  return (<>
+    <div className="Map">
+      <div className="map-container" ref={mapContainer}></div>
     </div>
-  );
-}
-MapPage.propTypes = {
-  parentFunc: PropTypes.func
+  </>);
 }
 
-export default MapPage;
+export default Map;
 
 /*export default class MapPage extends React.Component {
   map = null;
