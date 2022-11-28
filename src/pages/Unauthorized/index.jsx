@@ -10,7 +10,7 @@ function Unauthorized(events) {
     const { logIn } = events;
 
     const send = (e) => {
-        logIn(e.mail, e.password).catch(err => { alert('не правильный логин или пароль') })
+        logIn(e.email, e.password).catch(err => { alert('не правильный логин или пароль') })
         console.log(e);
     }
 
