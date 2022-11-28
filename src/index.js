@@ -5,9 +5,10 @@ import App from './App';
 import { theme } from "loft-taxi-mui-theme";
 import { ThemeProvider } from "@material-ui/core/styles";
 import 'typeface-roboto';
+import reportWebVitals from "./reportWebVitals";
 import { MainContextProvider } from './context/main-context';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
@@ -17,3 +18,7 @@ root.render(
     </ThemeProvider>
   </React.StrictMode>
 );
+
+reportWebVitals();
+
+
