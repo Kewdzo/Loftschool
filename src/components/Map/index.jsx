@@ -7,7 +7,7 @@ import './style.css';
 function Map(events) {
   const mapContainer = useRef(null);
   const map = useRef(null);
-
+  
   useEffect(() => {
     if (map.current) return; // initialize map only once
     mapboxgl.accessToken =
