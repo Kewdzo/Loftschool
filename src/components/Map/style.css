@@ -1,0 +1,11 @@
+.map-container {
+  height: 90vh;
+  width: 100vw;
+}
+
+.mapboxgl-control-container {
+  display: none;
+}
+
+
+

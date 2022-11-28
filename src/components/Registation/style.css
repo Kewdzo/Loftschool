@@ -1,10 +1,9 @@
-.LoginPage {
+.RegistrationPage {
   display: flex;
   flex-direction: row;
   align-items: center;
   height: 100vh;
   width: 100vw;
-
 }
 
 .LeftPanel {
@@ -22,7 +21,7 @@
   justify-content: center;
 }
 
-.LoginPageForm {
+.RegistrationPageForm {
   display: flex;
   flex-direction: column;
   align-self: center;
@@ -33,7 +32,7 @@
   border-radius: 20px;
 }
 
-.LoginPageForm .LogIn {
+.RegistrationPageForm .LogIn {
   width: 353px;
   height: 61px;
   background: #FDBF5A;
@@ -42,7 +41,7 @@
   position: inherit;
 }
 
-.LoginPageForm form {
+.RegistrationPageForm form {
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -51,18 +50,7 @@
   justify-content: space-evenly;
 }
 
-.LoginPageForm .Password .Lost {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 19px;
-  text-align: right;
-  color: #828282;
-}
-
-
-.LoginCaption {
+.RegistrationCaption {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 700;
@@ -72,7 +60,7 @@
   color: #000000;
 }
 
-.LoginPageForm .Registration {
+.RegistrationPageForm .Registration {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
@@ -93,6 +81,16 @@
 }
 
 .EmailLable {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  /* identical to box height */
+  color: #000000;
+}
+
+.NameLable {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 700;

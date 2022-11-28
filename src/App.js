@@ -31,46 +31,27 @@
 // export default App;
 
 import React from 'react';
-import LoginPage from './components/Login';
-import MapPage from './components/Map';
-import RegisterPage from './components/Registation';
-import ProfilePage from './components/Profile';
+import Authorized from './pages/Authorized';
+import Unauthorized from './pages/Unauthorized';
+import { WithAuth } from './context/main-context';
 
-class App extends React.Component {
-  state = { page: 'login',email: "",password: "", name:""};
+const App = (props) => {
+  const { isLoggedIn } = props;
 
-
-  setPage = (name) => {
-    this.setState({ page: name });
-  }
-  
-  handleChange = (event) => {
-    this.setState({ [event.target.name]: event.target.value });
-  }
-
-  render() {
-    return (
-      <div className='App'>
-        <h1>Показывается страница {this.state.page}.js</h1>
-        <button onClick={() => this.setPage('login')}>Перейти на Login</button>
-        <button onClick={() => this.setPage('map')}>Перейти на Map</button>
-        <button onClick={() => this.setPage('register')}>Перейти на Register</button>
-        <button onClick={() => this.setPage('profile')}>Перейти на Profile</button>
-        <hr />
-        <div>{
-          {
-            login: <LoginPage parentFunc={this.setPage} formFunc={this.handleChange} state={this.state}/>,
-            map: <MapPage parentFunc={this.setPage} />,
-            register: <RegisterPage parentFunc={this.setPage} formFunc={this.handleChange} state={this.state}/>,
-            profile: <ProfilePage parentFunc={this.setPage} />
-          }[this.state.page]
-        }</div>
-      </div>
-    );
-  };
+  return (
+    <div className="App">
+      {
+        isLoggedIn
+          ? <Authorized />
+          : <Unauthorized />
+      }
+    </div>
+  );
 }
 
-export default App;
+export default WithAuth(App);
+
+
 
 
 

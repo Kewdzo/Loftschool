@@ -1,45 +1,60 @@
 //import { useHistory } from 'react-router-dom';
 import './style.css'
+import React, { useState, useContext } from "react";
+import { MainContext } from '../../context/main-context';
+import PropTypes from "prop-types";
+import logo from '../../assets/icons/Main.png';
+import map from '../../assets/images/Map.jpg';
+//import { Logo,MCIcon } from "loft-taxi-mui-theme";
+import Input from '@mui/material/Input';
 
-const LoginPage = (props) => { 
-    //TODO: Необходимо будет перейти от вложенности инпутов к взаимосвязям с lable-input через Id
-    //TODO: Пересмотреть реализацию с сохранением логина/пароля как в Registration
-    return ( 
-        <div className="LoginPage">
-        <header className="LoginPage-header">
+const LoginPage = (props) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const myContext = useContext(MainContext);
+
+  const logIn = (email, password, props) => {
+    if (email && password) {
+      myContext.logIn(email, password);
+      props.parentFunc('map');
+    }
+    else {
+      console.log("ПОльзователь пустой");
+    }
+  };
+
+  return (
+    <div className="LoginPage" style={{ backgroundImage: `url(${map})` }}>
+      <div className="LeftPanel">
+        <img src={logo} alt="Logo" style={{ alignSelf: 'center', height: '20%' }} />;
+      </div>
+      <div className="CenterPanel">
         <div className="LoginPageForm">
-              <p className="LoginCaption">Войти</p>  
-              <form onSubmit={() => props.parentFunc('map')}>
-              <div className='Email'>
-                <label> Email:
-                  <input
-                    type="text"
-                    name="email"
-                    value={props.state.email}
-                    onChange={(e) => props.formFunc(e)}
-                  />
-                </label>
-              </div>
-              <div className='Password'>
-                <label> Пароль:
-                  <input
-                    type="text"
-                    name="password"
-                    value={props.state.password}
-                    onChange={(e) => props.formFunc(e)}
-                  />
-                </label>
-                <p className="Lost">Забыли пароль?</p>
-              </div>              
-              <input type="submit" value="Войти" className="LogIn"/>
-              <p className="Registration">Новый пользователь? <a href="#Foo" onClick={() => props.parentFunc('register')}>Регистрация</a></p>              
-            </form>      
+          <p className="LoginCaption">Войти</p>
+          <form onSubmit={() => logIn(email, password, props)}>
+            <div className='Email' style={{ display: 'contents' }} >
+              <label htmlFor="Email" className="EmailLable">Email</label>
+              <Input id="Email" name="email" type="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
+            </div>
+            <div className='Password' style={{ display: 'contents' }} >
+              <label htmlFor="Password" className="PasswordLable">Пароль</label>
+              <Input id="Password" name="password" type="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+              <p className="Lost">Забыли пароль?</p>
+            </div>
+            <Input type="submit" value="Войти" className="LogIn" />
+            <p className="Registration">Новый пользователь? <a href="#Foo" onClick={() => props.parentFunc('register')} style={{ color: '#FDBF5A' }}>Регистрация</a></p>
+          </form>
         </div>
-        </header>
-    </div> 
+      </div>
+
+    </div>
   );
 }
- 
+
+LoginPage.propTypes = {
+  parentFunc: PropTypes.func
+}
+
 export default LoginPage;
 
 //Для будущего роутинга
@@ -56,6 +71,6 @@ export default LoginPage;
 //         return history.push('/profile');
 //       default:
 //         return console.log(e);
-//     }  
+//     }
 // }
 // <button onClick={e => handleClick(e,'profile')}>Profile</button>
