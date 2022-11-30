@@ -3,10 +3,10 @@ import React from "react";
 export const MainContext = React.createContext();
 
 export const MainContextProvider = ({ children }) => {
-    const [isLoggedIn, setIsLoggedIn] = React.useState(false);
+    const [isAuthorized, setIsAuthorized] = React.useState(false);
     /*Переделано для получения подробного ответа
     const logIn = (email, password) => {
-        setIsLoggedIn(true);
+        setisAuthorized(true);
         console.log('Пользователь залогинился');
         console.log('Логин: ' + email);
         console.log('Пароль: ' + password);
@@ -14,17 +14,16 @@ export const MainContextProvider = ({ children }) => {
 
     const logIn = (email, password) => new Promise((resolve, reject)=>{
         if(!email || !password) return reject('fail');
-
 		resolve('success');
-		setIsLoggedIn(true);
+		setIsAuthorized(true);
 	})
 
 
     const logOut = () => {
-        setIsLoggedIn(false);
+        setIsAuthorized(false);
     };
     return (
-        <MainContext.Provider value={{ logIn, logOut, isLoggedIn }}>
+        <MainContext.Provider value={{ logIn, logOut, isAuthorized }}>
             {children}
         </MainContext.Provider>
     );

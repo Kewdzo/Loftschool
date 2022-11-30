@@ -1,55 +1,58 @@
-// import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-// import LoginPage from './login.js';
-// import MapPage from './map.js';
-// import RegisterPage from './registration.js';
-// import ProfilePage from './profile.js';
-//Для работы через роутинг
-// function App() {
-//   return (
-//     <div className="App">
-//       <Router>
-//             <div className='content'>
-//               <Switch>
-//                 <Route path='/login'>
-//                   <LoginPage />
-//                 </Route>
-//                 <Route path='/map'>
-//                   <MapPage />
-//                 </Route>
-//                 <Route path='/register'>
-//                   <RegisterPage />
-//                 </Route>
-//                 <Route path='/profile'>
-//                   <ProfilePage />
-//                 </Route>                
-//               </Switch>            
-//           </div>
-//         </Router>
-//     </div>
-//   ); 
-// }
-// export default App;
-
-import React from 'react';
-import Authorized from './pages/Authorized';
+import React, { useEffect } from 'react';
 import Unauthorized from './pages/Unauthorized';
+import Authorized from './pages/Authorized';
 import { WithAuth } from './context/main-context';
+import PrivateRoute from './PrivateRoute';
+import { Redirect, Route, BrowserRouter, Switch } from 'react-router-dom';
 
 const App = (props) => {
-  const { isLoggedIn } = props;
+  const { isAuthorized } = props;
+  
+  useEffect(() => {
+    console.log(isAuthorized);
+  })
+
+  
 
   return (
     <div className="App">
-      {
-        isLoggedIn
-          ? <Authorized />
-          : <Unauthorized />
-      }
+      <BrowserRouter>
+        <Switch>
+          <Route path='/login'>
+            {
+              isAuthorized
+                ? <Redirect to="/map" />
+                : <Unauthorized />
+            }
+          </Route>
+          <Route path='/registration'>
+            {
+              isAuthorized
+                ? <Redirect to="/map" />
+                : <Unauthorized />
+            }
+          </Route>
+          <PrivateRoute
+            path="/map"
+            component={Authorized}
+          />
+          <Route path='*'>
+          <Redirect to="/login" />
+          </Route>
+        </Switch>
+      </BrowserRouter>
     </div>
+
   );
 }
 
 export default WithAuth(App);
+
+
+
+
+
+
 
 
 

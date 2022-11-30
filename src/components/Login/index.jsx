@@ -42,7 +42,7 @@ const LoginPage = (props) => {
               <p className="Lost">Забыли пароль?</p>
             </div>
             <Input type="submit" value="Войти" className="LogIn" />
-            <p className="Registration">Новый пользователь? <a href="#Foo" onClick={() => props.parentFunc('register')} style={{ color: '#FDBF5A' }}>Регистрация</a></p>
+            <p className="Registration">Новый пользователь? <a href="/registration" onClick={() => props.parentFunc('register')} style={{ color: '#FDBF5A' }}>Регистрация</a></p>
           </form>
         </div>
       </div>
