@@ -5,15 +5,15 @@ import { act } from "react-dom/test-utils";
 
 describe("MainContext", () => {
   describe("#logIn", () => {
-    it("sets 'isLoggedIn' to true", () => {
-      let isLoggedIn;
+    it("sets 'isAuthorized' to true", () => {
+      let isAuthorized;
       let logIn;
 
       render(
         <MainContextProvider>
           <MainContext.Consumer>
             {(value) => {
-              isLoggedIn = value.isLoggedIn;
+              isAuthorized = value.isAuthorized;
               logIn = value.logIn;
               return null;
             }}
@@ -21,17 +21,17 @@ describe("MainContext", () => {
         </MainContextProvider>
       );
 
-      expect(isLoggedIn).toBe(false);
+      expect(isAuthorized).toBe(false);
       act(() => {
         logIn("valid@email.com", "correctpassword");
       })
-      expect(isLoggedIn).toBe(true);
+      expect(isAuthorized).toBe(true);
     });
   });
 
   describe("#logOut", () => {
-    it("sets 'isLoggedIn' to false", () => {
-      let isLoggedIn;
+    it("sets 'isAuthorized' to false", () => {
+      let isAuthorized;
       let logOut;
       let logIn;
 
@@ -41,7 +41,7 @@ describe("MainContext", () => {
             {(value) => {
               logOut = value.logOut;
               logIn = value.logIn;
-              isLoggedIn = value.isLoggedIn;
+              isAuthorized = value.isAuthorized;
               return null;
             }}
           </MainContext.Consumer>
@@ -53,7 +53,7 @@ describe("MainContext", () => {
         logOut();
       });
 
-      expect(isLoggedIn).toBe(false);
+      expect(isAuthorized).toBe(false);
     });
   });
 });
