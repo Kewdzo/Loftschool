@@ -1,21 +1,20 @@
 import { handleActions } from 'redux-actions';
 import { combineReducers } from 'redux';
 import {
-  fetchAdressListRequest,
+  fetchAdressListSuccess,
   fetchServerFailure
 } from './actions';
 
 const addresses = handleActions(
   {
-    [fetchAdressListRequest]: (_state, action) => action.payload,
+    [fetchAdressListSuccess]: (_state, action) => action.payload,
   },
   [],
 );
 
-
 const error = handleActions(
   {
-    [fetchAdressListRequest]: () => null,
+    [fetchAdressListSuccess]: () => null,
     [fetchServerFailure]: (_state, action) => action.payload,
   },
   null,

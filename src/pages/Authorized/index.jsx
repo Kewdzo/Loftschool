@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './style.css';
 import Header from '../../components/Header';
 import Map from '../../components/Map';
 import Profile from '../../components/Profile';
 import { WithAuth } from '../../context/main-context';
+//import { useDispatch, useSelector } from 'react-redux';
+import { getAdresses } from '../../modules/serverAPI';
+
 
 
 function Authorized(events) {
@@ -13,6 +16,15 @@ function Authorized(events) {
     const pages = {
         profile: <Profile />,
     }
+
+    const adresses = getAdresses();
+
+    useEffect(() => {
+        console.log("АДРЕСА:");
+        console.log(adresses);
+    }, [adresses])
+
+
 
 
     function clickNavItemFunc(e) {

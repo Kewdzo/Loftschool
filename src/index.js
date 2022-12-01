@@ -11,6 +11,9 @@ import { Provider } from 'react-redux';
 import createStore from './store';
 
 const store = createStore();
+store.subscribe(() => {
+  console.log("Store updated");
+});
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
