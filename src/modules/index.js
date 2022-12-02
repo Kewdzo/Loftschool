@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import serverAPI from './serverAPI';
+import serverAPI from './redux';
 
 export default combineReducers({
     serverAPI

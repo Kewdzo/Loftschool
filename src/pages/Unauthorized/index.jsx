@@ -2,15 +2,18 @@ import React from 'react';
 import AuthForm from '../../components/AuthForm';
 import logo from '../../assets/icons/Main.png';
 import map from '../../assets/images/Map.jpg';
-import { WithAuth } from '../../context/main-context';
 import './style.css';
+import { connect } from 'react-redux';
+import { logIn, authenticate } from "../../modules/redux";
+
 
 function Unauthorized(events) {
 
     const { logIn } = events;
 
     const send = (e) => {
-        logIn(e.email, e.password).catch(err => { alert('не правильный логин или пароль') });
+        //logIn(e.email, e.password).catch(err => { alert('не правильный логин или пароль') });
+        logIn();
         console.log(e);
     }
 
@@ -27,4 +30,7 @@ function Unauthorized(events) {
     </>);
 }
 
-export default WithAuth(Unauthorized);
+export default connect(
+    (state) => ({ isLoggedIn: state.serverAPI.isLoggedIn }),
+    { logIn, authenticate }
+)(Unauthorized);

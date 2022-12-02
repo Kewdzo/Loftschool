@@ -1,6 +1,6 @@
 //import { createSelector } from 'reselect';
 
-export const getLogInStatus = state => state;
+export const getLogInStatus = state => state.serverAPI.isLoggedIn;
 export const getError = state => state.series.error;
 export const getAdresses = state => state;
 // createSelector(

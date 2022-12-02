@@ -3,10 +3,10 @@ import './style.css';
 import Header from '../../components/Header';
 import Map from '../../components/Map';
 import Profile from '../../components/Profile';
-import { WithAuth } from '../../context/main-context';
 //import { useDispatch, useSelector } from 'react-redux';
-import { getAdresses } from '../../modules/serverAPI';
-
+import { getAdresses } from '../../modules/redux';
+import { connect} from 'react-redux';
+import { logIn, logOut } from "../../modules/redux";
 
 
 function Authorized(events) {
@@ -50,4 +50,7 @@ function Authorized(events) {
     </>);
 }
 
-export default WithAuth(Authorized);
+export default connect(
+    null,
+    { logIn, logOut }
+  )(Authorized);

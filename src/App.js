@@ -1,21 +1,15 @@
 import React, { useEffect } from 'react';
 import Unauthorized from './pages/Unauthorized';
 import Authorized from './pages/Authorized';
-import { WithAuth } from './context/main-context';
 import PrivateRoute from './PrivateRoute';
-import { Redirect, Route, BrowserRouter, Switch } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { fetchAdressListRequest } from './modules/serverAPI';
+import { Redirect, Route, Switch } from 'react-router-dom';
+//import { useDispatch } from 'react-redux';
+import { getLogInStatus } from './modules/redux';
+import { connect } from "react-redux";
+
 
 const App = (props) => {
-  const { isAuthorized } = props;
-
-  const dispatch = useDispatch();
-
-  function fetchAdresses() {
-    dispatch(fetchAdressListRequest('1'));
-  };
-  fetchAdresses();
+  const { isLoggedIn } = props;
 
   useEffect(() => {
     //console.log("123")
@@ -23,18 +17,17 @@ const App = (props) => {
 
   return (
     <div className="App">
-      <BrowserRouter>
         <Switch>
           <Route path='/login'>
             {
-              isAuthorized
+              isLoggedIn
                 ? <Redirect to="/map" />
                 : <Unauthorized />
             }
           </Route>
           <Route path='/registration'>
             {
-              isAuthorized
+              isLoggedIn
                 ? <Redirect to="/map" />
                 : <Unauthorized />
             }
@@ -47,13 +40,12 @@ const App = (props) => {
             <Redirect to="/login" />
           </Route>
         </Switch>
-      </BrowserRouter>
     </div>
 
   );
 }
 
-export default WithAuth(App);
+export default connect((state) => ({ isLoggedIn: getLogInStatus(state) }))(App);
 
 
 
