@@ -10,7 +10,6 @@ import { connect } from "react-redux";
 
 const App = (props) => {
   const { isLoggedIn } = props;  
-  console.log("APP: " + isLoggedIn)
 
   return (
     <div className="App">

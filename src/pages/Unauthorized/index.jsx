@@ -13,7 +13,6 @@ function Unauthorized(events) {
 
     const send = (e) => {
         //logIn(e.email, e.password).catch(err => { alert('не правильный логин или пароль') });
-        console.log(e);
         if (e.sendType === "SignUp") {
             registration(e.email, e.password, e.name);
         }
