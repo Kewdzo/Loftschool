@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './style.css';
 import Header from '../../components/Header';
 import Map from '../../components/Map';
 import Profile from '../../components/Profile';
 //import { useDispatch, useSelector } from 'react-redux';
-import { getAdresses } from '../../modules/redux';
+//import { getAdresses } from '../../modules/redux';
 import { connect} from 'react-redux';
 import { logIn, logOut } from "../../modules/redux";
 
@@ -17,17 +17,7 @@ function Authorized(events) {
         profile: <Profile />,
     }
 
-    const adresses = getAdresses();
-
-    useEffect(() => {
-        console.log("АДРЕСА:");
-        console.log(adresses);
-    }, [adresses])
-
-
-
-
-    function clickNavItemFunc(e) {
+     function clickNavItemFunc(e) {
         if (e.name === 'out') logOut();
         else setContent(e.name);
     }

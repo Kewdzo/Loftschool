@@ -16,7 +16,6 @@ const AuthForm = (events) => {
     e.preventDefault();
     let send_obj = { sendType: isSignIn ? 'SignIn' : 'SignUp', };
     e.target.querySelectorAll('input').forEach(el => send_obj[el.name] = el.value);
-
     (typeof formSend === 'function') && formSend(send_obj);
   }
 

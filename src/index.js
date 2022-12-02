@@ -11,10 +11,6 @@ import createStore from './store';
 import { BrowserRouter } from "react-router-dom";
 
 const store = createStore();
-store.subscribe(() => {
-  console.log("Store updated");
-
-});
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

@@ -4,17 +4,22 @@ import logo from '../../assets/icons/Main.png';
 import map from '../../assets/images/Map.jpg';
 import './style.css';
 import { connect } from 'react-redux';
-import { logIn, authenticate } from "../../modules/redux";
+import { authenticate, registration } from "../../modules/redux";
 
 
 function Unauthorized(events) {
 
-    const { logIn } = events;
+    const { authenticate, registration } = events;
 
     const send = (e) => {
         //logIn(e.email, e.password).catch(err => { alert('не правильный логин или пароль') });
-        logIn();
         console.log(e);
+        if (e.sendType === "SignUp") {
+            registration(e.email, e.password, e.name);
+        }
+        else {
+            authenticate(e.email, e.password);
+        }
     }
 
     return (<>
@@ -32,5 +37,5 @@ function Unauthorized(events) {
 
 export default connect(
     (state) => ({ isLoggedIn: state.serverAPI.isLoggedIn }),
-    { logIn, authenticate }
+    { authenticate, registration }
 )(Unauthorized);

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Unauthorized from './pages/Unauthorized';
 import Authorized from './pages/Authorized';
 import PrivateRoute from './PrivateRoute';
@@ -9,11 +9,8 @@ import { connect } from "react-redux";
 
 
 const App = (props) => {
-  const { isLoggedIn } = props;
-
-  useEffect(() => {
-    //console.log("123")
-  }, []);
+  const { isLoggedIn } = props;  
+  console.log("APP: " + isLoggedIn)
 
   return (
     <div className="App">
