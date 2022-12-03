@@ -2,7 +2,9 @@ import { authMiddleware } from "../modules/redux/middlewares";
 import { authenticate, logIn } from "../modules/redux/actions";
 import { serverLogIn } from "../api";
 
-jest.mock("../api", () => ({ serverLogIn: jest.fn(() => true) }));
+jest.mock("../api", () => ({ serverLogIn: jest.fn(() => ({success: true})) }));
+jest.spyOn(window, 'alert').mockImplementation(() => {});
+
 
 describe("authMiddleware", () => {
   afterAll(jest.clearAllMocks)
@@ -10,7 +12,7 @@ describe("authMiddleware", () => {
   describe("#AUTHENTICATE", () => {
     describe("with correct credentials", () => {
       it("authenticates through api", async () => {
-        serverLogIn.mockImplementation(async () => true);
+        serverLogIn.mockImplementation(async () => ({success: true}));
         const dispatch = jest.fn();
 
         await authMiddleware({ dispatch })()(

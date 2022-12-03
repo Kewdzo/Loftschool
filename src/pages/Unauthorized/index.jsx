@@ -35,6 +35,6 @@ function Unauthorized(events) {
 }
 
 export default connect(
-    (state) => ({ isLoggedIn: state.serverAPI.isLoggedIn }),
+    null,
     { authenticate, registration }
 )(Unauthorized);
