@@ -19,7 +19,7 @@ const SignIn = (events) => {
                 <p className="text" data-link='forgot-pass'>Забыли пароль?</p>
             </div>
             <button type="submit" className="btn">Войти</button>
-            <p className='text'>Новый пользователь? <a href="#Foo" onClick={changeSing} style={{ color: '#FDBF5A' }}>Регистрация</a></p>
+            <p className='text'>Новый пользователь? <a href="/registration" onClick={changeSing} style={{ color: '#FDBF5A' }}>Регистрация</a></p>
         </div>
     </>
     )

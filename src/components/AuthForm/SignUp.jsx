@@ -22,7 +22,7 @@ const SignUp = (events) => {
                     <Input id="Password" name="password" type="Password" className="PasswordInput" />
                 </div>
                 <button type="submit" className="btn">Зарегистрироваться</button>
-                <p className="Registration">Уже зарегистрированы? <a href="#Foo" onClick={changeSing} style={{ color: '#FDBF5A' }}>Войти</a></p>
+                <p className="Registration">Уже зарегистрированы? <a href="/login" onClick={changeSing} style={{ color: '#FDBF5A' }}>Войти</a></p>
             </div>
         </>
     );

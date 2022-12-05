@@ -1,0 +1,73 @@
+.Profile {
+    width: 800px;
+    height: 541px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+}
+
+.PayData {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    height: 300px;
+}
+
+.InputsGroup {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-evenly;
+    padding-left: 50px;
+}
+
+.Profile h2.title {
+    padding-top: 20px;
+    text-align: center;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 35px;
+    color: #000000;
+}
+
+.Profile p.text {
+    text-align: center;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    color: #7B7B7B;
+}
+
+.PayData input {
+    border: none;
+    display: block;
+    width: 100%;
+    border-bottom: 2px solid #E4E4E4;
+}
+
+.SecretCard {
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.btn {
+    font-size: 1.2em;
+    font-weight: 500;
+    border: none;
+    color: #222;
+    background: #FDBF5A;
+    border-radius: 10em;
+    padding: 0.5em;
+    cursor: pointer;
+    transition: 0.2s;
+    user-select: none;
+}
+
+
+.btn:active {
+    transform: scale(0.95);
+}
