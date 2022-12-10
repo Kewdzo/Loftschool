@@ -4,7 +4,7 @@ import { getAuthToken, getAuthTokenAfterRegistration, getRouteFromServer, getAdd
 
 //Вход в систему
 export function* handleAuth() {
-    yield takeEvery(authenticate, authenticateSaga(action));
+    yield takeEvery(authenticate, action => authenticateSaga(action));
 };
 
 export function* authenticateSaga(action) {
@@ -25,7 +25,7 @@ export function* authenticateSaga(action) {
 
 //Регистрация нового пользователя и вход в систему
 export function* handleReg() {
-    yield takeEvery(registration, registrationSaga(action));
+    yield takeEvery(registration, action => registrationSaga(action));
 };
 
 export function* registrationSaga(action) {
@@ -49,13 +49,13 @@ export function* registrationSaga(action) {
 
 //Получение маршрута из двух адресов
 export function* handleRoute() {
-    yield takeEvery(getRoute, getRouteSaga(action));
+    yield takeEvery(getRoute, action => getRouteSaga(action));
 };
 
 export function* getRouteSaga(action) {
     const { address1, address2 } = action.payload;
     const result = yield call(getRouteFromServer, address1, address2);
-    if (result.success) {
+    if (result.length > 0 ) {
         yield put({ type: routeReady.toString(), payload: result });
     }
     else {
@@ -65,12 +65,12 @@ export function* getRouteSaga(action) {
 
 //Получение списка адресов
 export function* handleAddreses() {
-    yield takeEvery(getAddressList, getAddressListSaga());
+    yield takeEvery(getAddressList, getAddressListSaga);
 };
 
-export function* getAddressListSaga(action) {
+export function* getAddressListSaga() {
     const result = yield call(getAddreses);
-    if (result.success) {
+    if (result.addresses) {
         const addreses = result.addresses;
         yield put({ type: addressListReady.toString(), payload: addreses });
     }
@@ -81,7 +81,7 @@ export function* getAddressListSaga(action) {
 
 //Получение данных по карте
 export function* handleGetCard() {
-    yield takeEvery(getCard, getCardSaga(action));
+    yield takeEvery(getCard, action => getCardSaga(action));
 };
 
 export function* getCardSaga(action) {
@@ -103,7 +103,7 @@ export function* getCardSaga(action) {
 
 //Обновление данных по карте
 export function* handlePostCard() {
-    yield takeEvery(postCard, postCardSaga(action));
+    yield takeEvery(postCard, action => postCardSaga(action));
 };
 
 export function* postCardSaga(action) {
