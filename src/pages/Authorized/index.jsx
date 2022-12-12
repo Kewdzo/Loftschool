@@ -23,7 +23,8 @@ function Authorized(events) {
     }, [addresses])
 
     useEffect(() => {
-        if (cardInfo.cardName && cardInfo.cardNumber && cardInfo.expiryDate && cardInfo.cvc  && cardInfo.token) {
+        debugger;
+        if (cardInfo.cardName && cardInfo.cardNumber && cardInfo.expiryDate && cardInfo.cvc) {
             setIsHavePayCard(true);
         }
       }, [cardInfo])
