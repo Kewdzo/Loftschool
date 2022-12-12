@@ -3,6 +3,10 @@ import React, { useState, useEffect } from "react";
 import Input from '@mui/material/Input';
 import { connect } from 'react-redux';
 import { postCard, getToken, getCardData } from "../../modules/redux";
+import card_icon_img from '../../assets/icons/CardIcon.png';
+import card_mastercard_img from '../../assets/icons/CardMasterCard.png';
+import card_cgip_img from '../../assets/icons/CardChip.svg';
+
 
 
 function Profile(events) {
@@ -56,11 +60,22 @@ function Profile(events) {
             </div>
           </div>
           <div className="Preview">
-            <p>{date}</p>
-            <h1>{card}</h1>
+            <div className="first">
+              <img src={card_icon_img} alt="CardIcon" />
+              <p>{date}</p>
+            </div>
+            <div className="second">
+              <h1>{card}</h1>
+            </div>
+            <div className="third">
+            <img src={card_cgip_img} alt="CardChip" />
+            <img src={card_mastercard_img} alt="CardMasterCard" />
+            </div>
           </div>
         </div>
-        <button type="submit" className="btn">Сохранить</button>
+        <div className='SubmitContainer'>
+          <button type="submit" className="btn">Сохранить</button>
+        </div>
       </form>
     </div >
   </>);

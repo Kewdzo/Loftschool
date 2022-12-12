@@ -84,6 +84,8 @@ export function* handleGetCard() {
     yield takeEvery(getCard, action => getCardSaga(action));
 };
 
+
+//TODO: убрать загрушку когда починят бэк
 export function* getCardSaga(action) {
     const token = action.payload;
     const result = yield call(getCardInfo, token);

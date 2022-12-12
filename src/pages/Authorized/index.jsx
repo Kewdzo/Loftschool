@@ -23,7 +23,9 @@ function Authorized(events) {
     }, [addresses])
 
     useEffect(() => {
-        if (cardInfo.cardName) setIsHavePayCard(true);
+        if (cardInfo.cardName && cardInfo.cardNumber && cardInfo.expiryDate && cardInfo.cvc  && cardInfo.token) {
+            setIsHavePayCard(true);
+        }
       }, [cardInfo])
 
     const pages = {
@@ -35,7 +37,6 @@ function Authorized(events) {
     }, [])
 
     function getRouteFromAPI() {
-        console.log("gfds")
         getRoute(addressForOne, addressForTwo);
     }
     

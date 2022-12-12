@@ -8,10 +8,16 @@
 
 }
 
+body {
+	overflow: hidden;
+}
+
 
 .Authorized__content {
 	position: relative;
+	overflow: hidden;
 }
+	
 
 
 

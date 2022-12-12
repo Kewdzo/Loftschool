@@ -51,7 +51,16 @@
 .SecretCard {
     display: flex;
     flex-direction: row;
-    
+    justify-content: space-around;    
+}
+
+.SecretCard .Inputs {
+    width: 100px;
+}
+
+.SubmitContainer {
+    padding-top: 2em;
+    text-align: center;
 }
 
 .btn {
@@ -64,10 +73,67 @@
     padding: 0.5em;
     cursor: pointer;
     transition: 0.2s;
-    user-select: none;
+    user-select: none;    
+    width: 300px;    
 }
 
 
 .btn:active {
     transform: scale(0.95);
+}
+
+.NameLable {
+    padding-right: 15px;
+}
+
+.Preview {
+    height: 182px;
+    width: 347px;
+    background: #FFFFFF;
+    box-shadow: 0px 5px 20px 2px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.Preview img {
+    width: auto;
+    max-width: 34px;
+    max-height: 34px;
+}
+
+.Preview .first {
+    display: flex;    
+    text-align: center;
+    justify-content: center;
+}
+
+.Preview .first p {
+    margin-right: 16px;
+    flex: 2 2 80%;
+    text-align: end;
+}
+.Preview .first img {
+    margin-top: 16px;
+    margin-left: 28px;
+    flex: 1;
+}
+
+.Preview .second {
+    text-align: center;
+}
+
+
+.Preview .third {
+    display: block;
+    
+}
+
+.Preview .third {
+    display: flex;    
+    text-align: center;
+    justify-content: center;
+}
+
+.Preview .third img {
+    margin-top: 16px;
+    margin-left: 28px;
 }
