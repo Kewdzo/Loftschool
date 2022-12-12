@@ -6,7 +6,6 @@ export const authMiddleware = (store) => (next) => async (action) => {
   if (action.type === authenticate.toString()) {
     const { email, password } = action.payload;
     const data = await serverLogIn(email, password)
-    console.log(data)
     if (data.success) {
       store.dispatch(logIn(data.token))
     }
@@ -38,7 +37,7 @@ export const routeMiddleware = (store) => (next) => async (action) => {
   if (action.type === getRoute.toString()) {
     const { address1, address2 } = action.payload;
     const data = await serverRoute(address1, address2)
-    if (data.success) {
+    if (data.length > 0) {
       store.dispatch(routeReady(data))
     }
     else {

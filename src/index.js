@@ -10,6 +10,7 @@ import { Provider } from 'react-redux';
 import createStore from './store';
 import { BrowserRouter } from "react-router-dom";
 
+
 const store = createStore();
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

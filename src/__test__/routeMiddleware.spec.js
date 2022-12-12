@@ -2,7 +2,7 @@ import { routeMiddleware } from "../modules/redux/middlewares";
 import { routeReady, getRoute } from "../modules/redux/actions";
 import { serverRoute } from "../api";
 
-jest.mock("../api", () => ({ serverRoute: jest.fn(() => ({success: true})) }));
+jest.mock("../api", () => ({ serverRoute: jest.fn(() => ([[30.272182, 59.800652], [30.274046, 59.800365], [30.275146, 59.800365]])) }));
 jest.spyOn(window, 'alert').mockImplementation(() => {});
 
 
@@ -12,7 +12,7 @@ describe("routeMiddleware", () => {
   describe("#ROUTE", () => {
     describe("api ready", () => {
       it("authenticates through api", async () => {
-        serverRoute.mockImplementation(async () => ({success: true}));
+        serverRoute.mockImplementation(async () => ([[30.272182, 59.800652], [30.274046, 59.800365], [30.275146, 59.800365]]));
         const dispatch = jest.fn();
 
         await routeMiddleware({ dispatch })()(
@@ -21,7 +21,7 @@ describe("routeMiddleware", () => {
         expect(serverRoute).toBeCalledWith("address1", "address2");
         expect(dispatch).toBeCalledWith({
           type: routeReady.toString(),
-          payload: ({success: true})
+          payload: [[30.272182, 59.800652], [30.274046, 59.800365], [30.275146, 59.800365]]
         });
       });
     });

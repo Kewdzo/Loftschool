@@ -8,10 +8,16 @@
 
 }
 
+body {
+	overflow: hidden;
+}
+
 
 .Authorized__content {
 	position: relative;
+	overflow: hidden;
 }
+	
 
 
 
@@ -28,4 +34,29 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+
+.route-modal-page {
+	width: 500px; height: 220px;
+	background: #fff;
+	position: absolute;
+	left: 15px;top: 15px;
+}
+
+.firstSelect {
+	margin: 20px;
+    width: 450px;
+}
+.secondSelect {
+	margin: 20px;
+    width: 450px;
+}
+
+.buttonContainer {
+	text-align: center;
+}
+
+#routeButton {
+	color: #FDBF5A;
+	background: #1C1A19;
 }
