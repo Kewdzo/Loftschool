@@ -5,6 +5,7 @@ export const getError = state => state.series.error;
 export const getAdresses = state => state.serverAPI.addresses;
 export const getToken = state => state.serverAPI.token;
 export const getCardData = state => state.serverAPI.card;
+export const getRouteData = state => state.serverAPI.route;
 // createSelector(
 //   state => state.series.elements,
 //   elements =>

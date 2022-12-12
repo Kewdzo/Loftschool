@@ -2,9 +2,13 @@
 import mapboxgl from "mapbox-gl"
 import React, { useRef, useEffect } from 'react';
 import './style.css';
+import { getRouteData } from "../../modules/redux";
+import { connect } from 'react-redux';
 
 /*Функциональный компонент*/
 function Map(events) {
+  const { route } = events;
+
   const mapContainer = useRef(null);
   const map = useRef(null);
 
@@ -20,6 +24,51 @@ function Map(events) {
     });
   })
 
+  function createRoute() {
+    const coordinates = route;
+    map.current.flyTo({
+      center: coordinates[0],
+      zoom: 15
+    });
+
+    if (map.current.getLayer("route")) {
+      map.current.getSource('route').setData({ type: "LineString", coordinates });
+    }
+    else {
+      map.current.addLayer({
+        id: "route",
+        type: "line",
+        source: {
+          id: "routeSource",
+          type: "geojson",
+          data: {
+            type: "Feature",
+            properties: {},
+            geometry: {
+              type: "LineString",
+              coordinates
+            }
+          }
+        },
+        layout: {
+          "line-join": "round",
+          "line-cap": "round"
+        },
+        paint: {
+          "line-color": "#ffc617",
+          "line-width": 8
+        }
+      });
+    }
+
+  }
+
+
+
+  useEffect(() => {
+    if (route.length > 0) createRoute();
+  }, [route])
+
 
   return (<>
     <div className="Map">
@@ -28,4 +77,6 @@ function Map(events) {
   </>);
 }
 
-export default Map;
+export default connect(
+  (state) => ({ route: getRouteData(state) }),
+)(Map);
