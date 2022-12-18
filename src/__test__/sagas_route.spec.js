@@ -4,6 +4,7 @@ import { recordSaga } from "../modules/redux/recordSaga";
 import { getRouteFromServer } from "../API_sagas";
 
 jest.mock("../API_sagas", () => ({ getRouteFromServer: jest.fn(() => ([[30.272182, 59.800652], [30.274046, 59.800365], [30.275146, 59.800365]])) }));
+jest.spyOn(window, 'alert').mockImplementation(() => {});
 
 describe("routeSaga", () => {
     describe("#ROUTE", () => {

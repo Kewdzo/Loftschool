@@ -4,6 +4,7 @@ import { recordSaga } from "../modules/redux/recordSaga";
 import { getAddreses } from "../API_sagas";
 
 jest.mock("../API_sagas", () => ({ getAddreses: jest.fn(() => ({ success: true })) }));
+jest.spyOn(window, 'alert').mockImplementation(() => {});
 
 describe("addressesSaga", () => {
     describe("#ADDRESES", () => {

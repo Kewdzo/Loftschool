@@ -4,6 +4,7 @@ import { recordSaga } from "../modules/redux/recordSaga";
 import { postCardInfo } from "../API_sagas";
 
 jest.mock("../API_sagas", () => ({ postCardInfo: jest.fn(() => ({ success: true })) }));
+jest.spyOn(window, 'alert').mockImplementation(() => {});
 
 describe("authSaga", () => {
     describe("#AUTHENTICATE", () => {

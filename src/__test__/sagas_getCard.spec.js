@@ -4,6 +4,7 @@ import { recordSaga } from "../modules/redux/recordSaga";
 import { getCardInfo } from "../API_sagas";
 
 jest.mock("../API_sagas", () => ({ getCardInfo: jest.fn(() => ({ success: true })) }));
+jest.spyOn(window, 'alert').mockImplementation(() => {});
 
 describe("getCardSaga", () => {
     describe("#GET_CARD", () => {

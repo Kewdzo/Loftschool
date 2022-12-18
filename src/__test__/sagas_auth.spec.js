@@ -4,6 +4,7 @@ import { recordSaga } from "../modules/redux/recordSaga";
 import { getAuthToken } from "../API_sagas";
 
 jest.mock("../API_sagas", () => ({ getAuthToken: jest.fn(() => ({ success: true })) }));
+jest.spyOn(window, 'alert').mockImplementation(() => {});
 
 describe("authSaga", () => {
     describe("#AUTHENTICATE", () => {

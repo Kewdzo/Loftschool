@@ -39,7 +39,6 @@ function Map(events) {
         id: "route",
         type: "line",
         source: {
-          id: "routeSource",
           type: "geojson",
           data: {
             type: "Feature",
