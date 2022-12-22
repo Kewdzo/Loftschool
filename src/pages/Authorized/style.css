@@ -17,7 +17,7 @@ body {
 	position: relative;
 	overflow: hidden;
 }
-	
+
 
 
 
@@ -37,19 +37,20 @@ body {
 }
 
 .route-modal-page {
-	width: 500px; height: 220px;
 	background: #fff;
 	position: absolute;
-	left: 15px;top: 15px;
+	left: 15px;
+	top: 15px;
+	padding-bottom: 15px;
+	width: 400px;
 }
 
 .firstSelect {
 	margin: 20px;
-    width: 450px;
 }
+
 .secondSelect {
 	margin: 20px;
-    width: 450px;
 }
 
 .buttonContainer {
@@ -59,4 +60,51 @@ body {
 #routeButton {
 	color: #FDBF5A;
 	background: #1C1A19;
+	font-family: 'Roboto Condensed';
+}
+
+.route-modal-page p {
+	font-style: normal;
+	font-family: 'Roboto Condensed';
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 21px;
+	color: #7B7B7B;
+	text-align: center;
+}
+
+.route-modal-page h1 {
+	font-family: 'Roboto Condensed';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 36px;
+	line-height: 42px;
+	color: #000000;
+	text-align: center;
+}
+
+.CarConteiner {
+	justify-content: center;
+	display: flex !important;
+	padding-bottom: 15px;
+	gap: 10px;
+}
+
+
+.CarBlockInside {
+	display: grid;
+}
+
+.CarBlockInside h1 {
+	grid-row-start: 1;
+	grid-row-end:2;
+	font-size: 20px;
+}
+
+.CarBlockInside p {
+	font-size: 12px;
+}
+
+.CarBlockInside img {
+max-height: 64px;
 }

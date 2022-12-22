@@ -65,7 +65,15 @@ function Map(events) {
 
 
   useEffect(() => {
-    if (route.length > 0) createRoute();
+    if (route.length > 0) {
+      createRoute();
+    }
+    else {
+      if (map.current.getLayer("route")) {
+        map.current.removeLayer('route');
+        map.current.removeSource('route');
+      }
+    }
   }, [route])
 
 

@@ -87,7 +87,7 @@
 }
 
 .LoginPageForm .Password .Lost {
-	font-family: 'Roboto';
+	font-family: 'Roboto Condensed';
 	font-style: normal;
 	font-weight: 400;
 	font-size: 16px;
@@ -98,7 +98,7 @@
 
 
 .LoginCaption {
-	font-family: 'Roboto';
+	font-family: 'Roboto Condensed';
 	font-style: normal;
 	font-weight: 700;
 	font-size: 30px;
@@ -108,7 +108,7 @@
 }
 
 .LoginPageForm .Registration {
-	font-family: 'Roboto';
+	font-family: 'Roboto Condensed';
 	font-style: normal;
 	font-weight: 400;
 	font-size: 16px;
@@ -118,7 +118,7 @@
 }
 
 .PasswordLable {
-	font-family: 'Roboto';
+	font-family: 'Roboto Condensed';
 	font-style: normal;
 	font-weight: 700;
 	font-size: 16px;
@@ -128,7 +128,7 @@
 }
 
 .EmailLable {
-	font-family: 'Roboto';
+	font-family: 'Roboto Condensed';
 	font-style: normal;
 	font-weight: 700;
 	font-size: 16px;
